@@ -2,9 +2,18 @@
 
 Paste JSON and generate Go structs with exported CamelCase field names, correct types, and json struct tags that preserve the original keys. Handles nested and anonymous structs and arrays of objects. Everything runs in your browser with no external dependencies and works offline.
 
-## Live demo
+**Live demo:** https://0xelitesystem.github.io/json-to-go-struct/
 
-https://0xelitesystem.github.io/json-to-go-struct/
+## Use
+
+1. Paste JSON into the JSON box, or click Load sample.
+2. Set the root struct name, and choose pointer types for null values and named or inline nested structs.
+3. Click Generate structs, or press Ctrl or Cmd + Enter.
+4. Click Copy and paste the structs into your Go code.
+
+## Why this exists
+
+Writing Go structs and json tags by hand for a large API response is slow and error-prone, and pasting that response into a hosted converter can expose real data. This is one HTML file with no tracking and no network calls, MIT licensed, that does the conversion in your browser.
 
 ## Features
 
@@ -22,7 +31,20 @@ The tool parses your JSON with the browser's built-in `JSON.parse`, then walks t
 
 ## Privacy
 
-Everything happens locally in your browser. Your JSON is never uploaded, logged, or sent anywhere. There are no external scripts, fonts, or stylesheets, so the page works offline. You can confirm by opening your browser DevTools and watching the network tab: no requests are made.
+Everything happens locally in your browser. Your JSON is never uploaded, logged, or sent anywhere. There are no external scripts, fonts, or stylesheets, so the page works offline. You can confirm by opening your browser DevTools and watching the network tab: no requests are made. The one thing the page stores is your light or dark theme choice, saved in `localStorage` under the key `theme`.
+
+## Run locally
+
+```
+git clone https://github.com/0xelitesystem/json-to-go-struct
+cd json-to-go-struct
+```
+
+Open `index.html` in any modern browser. Or serve the folder with `python -m http.server` and visit http://localhost:8000.
+
+## Build
+
+No build step. The whole tool is one `index.html` with inline CSS and JavaScript and no dependencies.
 
 ## More
 
